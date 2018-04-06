@@ -9,16 +9,68 @@
   </head>
   <body>
     <div class="container">
+      <form id="pizzaForm">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 header">
           <h1 class="jumbotron">Welcome to Pizza Heaven</h1>
-
-          
         </div>
-
       </div>
+      <div class="row">
+        <div class="col-md-4 pizza-size">
+          <div class="well">
+            <h2>Pizza Size</h2>
+            <ul>
+              <li>Small</li>
+              <li>Medium</li>
+              <li>Large</li>
+              <li>Halo</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4 pizza-toppings">
+          <div class="well">
+            <h2>Toppings</h2>
+            <ul>
+              <li>Pepperoni</li>
+              <li>Mushrooms</li>
+              <li>Sausage</li>
+              <li>Angel Dust</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4 pizza-delivery">
+          <div class="well">
+            <h2>Delivery Method</h2>
+            <ul>
+              <li>Carry Out</li>
+              <li>Delivery</li>
+              <li>Heaven-Sent</li>
+              <br>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 well pizza-results">
+          <h2>Pizza Results</h2>
+          <img src="img/emptypizza.png" alt="its empty">
+          <div class="row">
+            <br>
+            <div class="col-md-12">
+              <button class="btn btn-primary" type="submit" name="purchase">"Purchase"</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
 
+      <div class="row">
+        <div class="col-md-12 well purchase-results">
+          <h2>"Thank you for your purchase"</h2>
+          <button class="btn btn-primary" type="submit" name="new-purchase">"New Pizza"</button>
+        </div>
+      </div>
     </div>
-
-  </body>
+  
+</body>
 </html>
