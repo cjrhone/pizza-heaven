@@ -1,6 +1,6 @@
 
 //Business Logic
-var finalCost = 0;
+var finalCost = 0; // finalCost starts at $0
 
 function customer(name,email,pizza,cost) { //Declaring customer object
   this.name = name;
@@ -15,17 +15,14 @@ function pizza(size, toppings, delivery) { //Declaring pizza object
   this.delivery = delivery;
 }
 
-pizza.prototype.pizzaCalculator = function(amount) {
-  if ( this.size == "small") {
-    var finalCost += 4;
-  }
-  if ( this.size == "Medium") {
-    var finalCost += 4;
-  }
+// pizza.prototype.pizzaCalculator = function() { // Could not get pizzaCalculator to work
+//   if ( this.size === "small") {
+//     finalCost += 4;
+//   };
+//
+// };
 
-}
 
-}
 
 pizza.prototype.fullPizza = function() {
   return this.size + " " + this.toppings + " for " + this.delivery;
@@ -57,16 +54,39 @@ $(document).ready(function() {
      // Pizza size, toppings and delivery
     var inputtedSize = document.querySelector('input[name = "size"]:checked').value;
     $("input:checkbox[name=toppings]:checked").each(function(){
-         var inputtedToppings = $(this).val();
+         var inputtedToppings = $(this).val(); //Error with making multiple pizzas
     var inputtedDelivery = document.querySelector('input[name = "delivery"]:checked').value;;
     var newPizza = new pizza(inputtedSize, inputtedToppings, inputtedDelivery);
 
-newPizza.pizzaCalculator(newPizza)
+    if ( newPizza.size == "Small") {
+      finalCost = 4;
+    };
 
+    if ( newPizza.size == "Medium") {
+      finalCost = 5;
+    };
+
+    if ( newPizza.size == "Large" || newPizza.size == "Halo" ) {
+      finalCost = 7;
+    };
+
+    if ( newPizza.delivery == "carry-out") {
+      finalCost += 0;
+    };
+    if ( newPizza.delivery == "delivery") {
+      finalCost += 5;
+    };
+    if ( newPizza.delivery == "heaven-sent") {
+      finalCost += 7;
+    };
+
+    $(".total-cost").text(finalCost);
+    $(".name").text(customer.name);
+
+// pizza.pizzaCalculator(newPizza); //couldnt get prototype function to work
 
 console.log(newPizza);
-console.log(inputtedSize);
-console.log(inputtedToppings);
+console.log(finalCost);
 
     $(".purchase-results").show();
 
@@ -75,7 +95,7 @@ console.log(inputtedToppings);
   $("#new-pizza-form").submit(function(event) {
     event.preventDefault();
 
-    alert("new pizza coming your way!");
+    alert("Thank you! Come again!");
 
     location.reload();
   });
