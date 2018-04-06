@@ -18,6 +18,17 @@ Independent project._
 * _Use Firefox or Chrome for best results, though IE shouldn't have any problems._
 
 
+### Specs
+| Spec | Input | Output |
+| :-------------     | :------------- | :------------- |
+| **User chooses pizza size** | User clicks "Small" | A small pizza is calculated in their price|
+| **User chooses pizza toppings** | User clicks "Pepperoni" | Pepperoni is calculated in their price |
+| **User chooses delivery method**| User clicks "Carry Out" | Carry out option is calculated in their price |
+| **User purchases the pizza**| User clicks "purchase" button | Carry out option is calculated in their price |
+| **User creates a new pizza** | User clicks "Order New Pizza" | Page reloads with empty fields|
+
+
+
 ## Specs
 
 |:- What it will do -|:- Input -|:- Output  -:|
