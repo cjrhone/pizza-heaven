@@ -43,9 +43,9 @@ $(document).ready(function() {
   $("#pizza-form").submit(function(event) {
     event.preventDefault();
 
-    $("input:checkbox[name=toppings]:checked").each(function(){
-      finalCost++; // increases +1 per topping to final cost
-    });
+    // $("input:checkbox[name=toppings]:checked").each(function(){
+    //   finalCost++; // increases +1 per topping to final cost
+    // });
 
     var inputtedName = $(".input-name").val();
     var inputtedEmail = $(".input-email").val();
@@ -53,17 +53,21 @@ $(document).ready(function() {
 
      // Pizza size, toppings and delivery
     var inputtedSize = document.querySelector('input[name = "size"]:checked').value;
-    $("input:checkbox[name=toppings]:checked").each(function(){
-         var inputtedToppings = $(this).val(); //Error with making multiple pizzas
+
+    var inputtedToppings = $("input:checkbox[name=toppings]:checked").map(function() {
+      return this.value;
+    }); //Error with making multiple pizzas
+
+
     var inputtedDelivery = document.querySelector('input[name = "delivery"]:checked').value;;
     var newPizza = new pizza(inputtedSize, inputtedToppings, inputtedDelivery);
 
     if ( newPizza.size == "Small") {
-      finalCost = 4;
+      finalCost += 4;
     };
 
     if ( newPizza.size == "Medium") {
-      finalCost = 5;
+      finalCost += 5;
     };
 
     if ( newPizza.size == "Large" || newPizza.size == "Halo" ) {
@@ -81,11 +85,17 @@ $(document).ready(function() {
     };
 
     $(".total-cost").text(finalCost);
-    $(".name").text(customer.name);
+    $(".name").text(newCustomer.name);
+    $(".size-results").text(newPizza.size);
+    $(".topping-results").text(newPizza.toppings);
+    $(".delivery-results").text(newPizza.delivery);
+
+
 
 // pizza.pizzaCalculator(newPizza); //couldnt get prototype function to work
 
 console.log(newPizza);
+console.log(newPizza.toppings);
 console.log(finalCost);
 
     $(".purchase-results").show();
@@ -100,4 +110,3 @@ console.log(finalCost);
     location.reload();
   });
   });
-});
