@@ -18,33 +18,35 @@
       <div class="row">
         <div class="col-md-4 pizza-size">
           <div class="well">
-            <h2>Pizza Size</h2>
+            <h2>Pizza Size<hr></h2>
             <ul>
-              <li>Small</li>
-              <li>Medium</li>
-              <li>Large</li>
-              <li>Halo</li>
+              <input type="radio" name="size" value="4"> Small<br>
+              <input type="radio" name="size" value="5"> Medium<br>
+              <input type="radio" name="size" value="7"> Large<br>
+              <input type="radio" name="size" value="7"> Halo<br>
             </ul>
           </div>
         </div>
         <div class="col-md-4 pizza-toppings">
           <div class="well">
-            <h2>Toppings</h2>
+            <h2>Toppings<hr></h2>
             <ul>
-              <li>Pepperoni</li>
-              <li>Mushrooms</li>
-              <li>Sausage</li>
-              <li>Angel Dust</li>
+              <input type="checkbox" name="toppings" value="1"> Pepperoni<br>
+              <input type="checkbox" name="toppings" value="1"> Mushrooms<br>
+              <input type="checkbox" name="toppings" value="2"> Sausage<br>
+              <input type="checkbox" name="toppings" value="3"> Angel Dust<br>
             </ul>
           </div>
         </div>
         <div class="col-md-4 pizza-delivery">
           <div class="well">
-            <h2>Delivery Method</h2>
+            <h2>Delivery Method<hr></h2>
             <ul>
-              <li>Carry Out</li>
-              <li>Delivery</li>
-              <li>Heaven-Sent</li>
+              <input type="radio" name="delivery" value="0"> Carry Out<br>
+              <input type="radio" name="delivery" value="5"> Delivery<br>
+              <input type="radio" name="delivery" value="7"> Heaven-Sent<br>
+              <p><em>( Delivery driver will wear an angel costume and deliver within 20 minutes )</em></p>
+
               <br>
             </ul>
           </div>
@@ -52,7 +54,7 @@
       </div>
       <div class="row">
         <div class="col-md-12 well pizza-results">
-          <h2>Pizza Results</h2>
+          <h2>Pizza Results<hr></h2>
           <img src="img/emptypizza.png" alt="its empty">
           <div class="row">
             <br>
@@ -63,10 +65,10 @@
         </div>
       </div>
       </form>
-      <form id="new-pizza-form"
+      <form id="new-pizza-form">
       <div class="row">
         <div class="col-md-12 well purchase-results">
-          <h2>"Thank you for your purchase"</h2>
+          <h2>"Thank you for your purchase"<hr></h2>
           <button class="btn btn-primary" type="submit" name="new-purchase">"New Pizza"</button>
         </div>
       </div>
