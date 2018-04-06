@@ -5,8 +5,7 @@ var finalCost = 0; // finalCost starts at $0
 function customer(name,email,pizza,cost) { //Declaring customer object
   this.name = name;
   this.email = email;
-  this.pizza = pizza;
-  this.cost = cost
+
 }
 
 function pizza(size, toppings, delivery) { //Declaring pizza object
@@ -15,7 +14,7 @@ function pizza(size, toppings, delivery) { //Declaring pizza object
   this.delivery = delivery;
 }
 
-// pizza.prototype.pizzaCalculator = function() { // Could not get pizzaCalculator to work
+// pizza.prototype.pizzaCalculator = function() { // Could not get pizzaCalculator function to work
 //   if ( this.size === "small") {
 //     finalCost += 4;
 //   };
@@ -24,15 +23,9 @@ function pizza(size, toppings, delivery) { //Declaring pizza object
 
 
 
-pizza.prototype.fullPizza = function() {
-  return this.size + " " + this.toppings + " for " + this.delivery;
-}
-
-var newCustomer = new customer(inputtedName, inputtedEmail); // Customer name and email
-var inputtedName = $("input-name").val();
-var inputtedEmail = $("input-email").val();
-
-
+// pizza.prototype.fullPizza = function() { // Could not get fullPizza function to work
+//   return this.size + " " + this.toppings + " for " + this.delivery;
+// }
 
 
 
@@ -54,40 +47,44 @@ $(document).ready(function() {
      // Pizza size, toppings and delivery
     var inputtedSize = document.querySelector('input[name = "size"]:checked').value;
 
-    var inputtedToppings = $("input:checkbox[name=toppings]:checked").map(function() {
-      return this.value;
-    }); //Error with making multiple pizzas
+    var inputtedToppings = document.querySelector('input[name = "toppings"]:checked').value;
+
+    //Was able to select ONE from checkbox, could not figure out how to select multiple checkboxes in value
+
+    $("input:checkbox[name=toppings]:checked").each(function(){
+      finalCost++;
+    });
 
 
     var inputtedDelivery = document.querySelector('input[name = "delivery"]:checked').value;;
     var newPizza = new pizza(inputtedSize, inputtedToppings, inputtedDelivery);
 
     if ( newPizza.size == "Small") {
-      finalCost += 4;
+      finalCost = 14;
     };
 
     if ( newPizza.size == "Medium") {
-      finalCost += 5;
+      finalCost = 15;
     };
 
     if ( newPizza.size == "Large" || newPizza.size == "Halo" ) {
-      finalCost = 7;
+      finalCost = 17;
     };
 
     if ( newPizza.delivery == "carry-out") {
-      finalCost += 0;
+      finalCost += 2;
     };
     if ( newPizza.delivery == "delivery") {
-      finalCost += 5;
+      finalCost += 7;
     };
     if ( newPizza.delivery == "heaven-sent") {
-      finalCost += 7;
+      finalCost += 10;
     };
 
     $(".total-cost").text(finalCost);
     $(".name").text(newCustomer.name);
     $(".size-results").text(newPizza.size);
-    $(".topping-results").text(newPizza.toppings);
+    $(".topping-results").text(newPizza.toppings); //Could not get toppings to display correctly
     $(".delivery-results").text(newPizza.delivery);
 
 
